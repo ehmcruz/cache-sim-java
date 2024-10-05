@@ -19,7 +19,7 @@ public class Main {
     public static void print_bits (int value)
     {
         for (int i = 31; i >= 0; i--) {
-            System.out.print(extract_bits(value, i, 1));
+            System.out.print((value >> i) & 0x01);
         }
     }
 
@@ -30,6 +30,10 @@ public class Main {
 
         v = 0xFFFFFFFF;
         print_bits(v);
+        System.out.println();
+
+        v = 0xFFFFFFFF;
+        print_bits(extract_bits(v, 0, 31));
         System.out.println();
 
         v = set_bits(v, 31, 1, 0);
